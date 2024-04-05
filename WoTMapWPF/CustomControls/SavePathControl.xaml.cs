@@ -36,6 +36,12 @@ namespace WoTMapWPF.CustomControls
             model.Name = "path_name";
         }
 
+        /// <summary>
+        /// Filter that allows only alphanum characters.
+        /// Handler for TextChanged event of a TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AlphaNumFilter_TextChanged(object sender, EventArgs e)
         {
             TextBox textboxSender = (TextBox)sender;

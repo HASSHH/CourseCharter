@@ -34,7 +34,7 @@ namespace WoTMapWPF.CustomControls
                 bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapImage.EndInit();
                 bitmapImage.Freeze();
-                PreviewOffBitmap = new WriteableBitmap(bitmapImage);
+                previewOffBitmap = new WriteableBitmap(bitmapImage);
             }
             uri = new Uri("../Res/preview_on.png", UriKind.Relative);
             sri = App.GetResourceStream(uri);
@@ -47,7 +47,7 @@ namespace WoTMapWPF.CustomControls
                 bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapImage.EndInit();
                 bitmapImage.Freeze();
-                PreviewOnBitmap = new WriteableBitmap(bitmapImage);
+                previewOnBitmap = new WriteableBitmap(bitmapImage);
             }
             RecolorBitmaps();
         }

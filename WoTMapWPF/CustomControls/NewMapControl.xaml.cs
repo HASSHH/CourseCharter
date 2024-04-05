@@ -88,6 +88,12 @@ namespace WoTMapWPF.CustomControls
             SaveButtonClicked?.Invoke(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// Filter that allows only alphanum characters.
+        /// Handler for TextChanged event of a TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AlphaNumFilter_TextChanged(object sender, EventArgs e)
         {
             TextBox textboxSender = (TextBox)sender;
@@ -96,6 +102,12 @@ namespace WoTMapWPF.CustomControls
             textboxSender.SelectionStart = cursorPosition;
         }
 
+        /// <summary>
+        /// Filter that allows only numerical characters.
+        /// Handler for TextChanged event of a TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NumFilter_TextChanged(object sender, EventArgs e)
         {
             TextBox textboxSender = (TextBox)sender;

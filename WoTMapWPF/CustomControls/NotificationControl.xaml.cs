@@ -33,23 +33,40 @@ namespace WoTMapWPF.CustomControls
 
         public static readonly DependencyProperty IsErrorProperty = DependencyProperty.RegisterAttached("IsError", typeof(bool), typeof(NotificationControl), new PropertyMetadata(false));
 
+        /// <summary>
+        /// Show a message using the "notification colors"
+        /// </summary>
+        /// <param name="message"></param>
         public void ShowNotification(string message)
         {
             IsError = false;
             Show(message);
         }
 
+        /// <summary>
+        /// Show a message using the "error colors"
+        /// </summary>
+        /// <param name="message"></param>
         public void ShowError(string message)
         {
             IsError = true;
             Show(message);
         }
 
+        /// <summary>
+        /// Show a message using the "notification colors" and hides it after some time
+        /// </summary>
+        /// <param name="message"></param>
         public void ShowNotificationAndHide(string message, int delayMilliseconds = 3000)
         {
             IsError = false;
             ShowAndHide(message, delayMilliseconds);
         }
+
+        /// <summary>
+        /// Show a message using the "error colors" and hides it after some time
+        /// </summary>
+        /// <param name="message"></param>
         public void ShowErrorAndHide(string message, int delayMilliseconds = 3000)
         {
             IsError = true;

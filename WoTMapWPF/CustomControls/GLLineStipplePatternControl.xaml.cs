@@ -18,7 +18,11 @@ using System.Windows.Shapes;
 namespace WoTMapWPF.CustomControls
 {
     /// <summary>
-    /// Interaction logic for GLLineStipplePatternControl.xaml
+    /// A control that show a line formed of 16 squares that represent the bits of a short value.
+    /// The 0 and 1 values are represented by different colors according to the theme.
+    /// Initialized by the short value of "LineStipplePattern" resource.
+    /// LMB click on a "bit square" will set its value to 1, RMB will set it to 0.
+    /// PatternChanged event will fire when a change is made.
     /// </summary>
     public partial class GLLineStipplePatternControl : UserControl
     {
@@ -34,6 +38,9 @@ namespace WoTMapWPF.CustomControls
             viewModel.PropertyChanged += OnPropertyChanged;
         }
 
+        /// <summary>
+        /// Reset view to match value of "LineStipplePattern" resource
+        /// </summary>
         public void Reload()
         {
             viewModel.InitializeBitList();

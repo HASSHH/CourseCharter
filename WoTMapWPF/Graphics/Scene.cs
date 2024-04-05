@@ -14,8 +14,6 @@ namespace WoTMapWPF.Graphics
     public class Scene
     {
         public const float VERTICAL_UNITS = 100.0f;
-        private const float LINE_WIDTH = 10f;
-
         private bool initDone;
         private Path path;
         private int vpMatrixUniformLocation;
@@ -29,12 +27,11 @@ namespace WoTMapWPF.Graphics
         private RouteMarker endSelectedMarker = new RouteMarker(RouteMarker.MarkerType.EndSelected);
         private int moveMarkerIndex = -1;
 
-        public Scene(GLWpfControl glc)
+        public Scene(GLWpfControl glc, Path path)
         {
             initDone = false;
             GLControl = glc;
-            Map.New();
-            path = new Path();
+            this.path = path;
             ResetCamera();
         }
 

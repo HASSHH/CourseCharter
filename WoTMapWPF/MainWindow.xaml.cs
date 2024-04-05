@@ -13,8 +13,6 @@ using WoTMapWPF.Graphics;
 using Timer = System.Timers.Timer;
 using Window = System.Windows.Window;
 
-#pragma warning disable CS8601 // Possible null reference assignment.
-
 namespace WoTMapWPF
 {
     /// <summary>
@@ -33,6 +31,8 @@ namespace WoTMapWPF
         public MainWindow()
         {
             InitializeComponent();
+            InitializeGlComponent();
+            InitializeTimer();
             panels.Add("Map", new PanelButtonTuple { Panel = MapControl, Button = ShowMapButton });
             panels.Add("NewMap", new PanelButtonTuple { Panel = NewMapControl, Button = ShowNewMapButton });
             panels.Add("LoadMap", new PanelButtonTuple { Panel = LoadMapControl, Button = ShowLoadMapButton });
@@ -40,12 +40,11 @@ namespace WoTMapWPF
             panels.Add("LoadPath", new PanelButtonTuple { Panel = LoadPathControl, Button = ShowLoadPathButton });
             panels.Add("Guide", new PanelButtonTuple { Panel = GuideControl, Button = ShowGuideButton });
             panels.Add("Settings", new PanelButtonTuple { Panel = SettingsControl, Button = ShowSettingsButton });
-            InitializeGlComponent();
+            Map.New();
             ViewModel = (MainWindowViewModel)DataContext;
+            scene = new Scene(GLControl, ViewModel.Path);
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
-            scene = new Scene(GLControl);
             GLControl.Focusable = true;
-            InitializeTimer();
             jsonSerializerOptions = new JsonSerializerOptions();
             jsonSerializerOptions.NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals;
             jsonSerializerOptions.WriteIndented = true;

@@ -10,7 +10,7 @@ namespace WoTMapWPF.CustomControls
 {
     public class SavePathControlViewModel : INotifyPropertyChanged
     {
-        private string name;
+        private string name = string.Empty;
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public string Name { get => name; set { name = value; OnPropertyChanged("Name"); } }

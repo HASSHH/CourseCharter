@@ -28,25 +28,25 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="1" Grid.Column="0" Style="{DynamicResource PaddedLabelBorder}">
-                <TextBlock>Name</TextBlock>
+                <TextBlock ToolTip="Map name">Name</TextBlock>
             </Border>
             <Border Grid.Row="1" Grid.Column="1" Style="{DynamicResource PaddedBorder}">
                 <TextBox Text="{Binding Name}" TextChanged="AlphaNumFilter_TextChanged"/>
             </Border>
             <Border Grid.Row="2" Grid.Column="0" Style="{DynamicResource PaddedLabelBorder}">
-                <TextBlock>Distance unit label</TextBlock>
+                <TextBlock ToolTip="Name of the distance unit (e.g. km, mile)">Distance unit label</TextBlock>
             </Border>
             <Border Grid.Row="2" Grid.Column="1" Style="{DynamicResource PaddedBorder}">
                 <TextBox Text="{Binding UnitLabel}" TextChanged="AlphaNumFilter_TextChanged"/>
             </Border>
             <Border Grid.Row="3" Grid.Column="0" Style="{DynamicResource PaddedLabelBorder}">
-                <TextBlock>Sample length units (A)</TextBlock>
+                <TextBlock ToolTip="Value in units of some reference distance on the map&#x0a;Use for the value of A for computing how many units there are for one pixel of the map image">Sample length units (A)</TextBlock>
             </Border>
             <Border Grid.Row="3" Grid.Column="1" Style="{DynamicResource PaddedBorder}">
                 <TextBox Text="{Binding SampleUnits}" TextChanged="NumFilter_TextChanged"/>
             </Border>
             <Border Grid.Row="4" Grid.Column="0" Style="{DynamicResource PaddedLabelBorder}">
-                <TextBlock>Sample length pixels (B)</TextBlock>
+                <TextBlock ToolTip="Value in pixels of some reference distance on the map&#x0a;Use for the value of B for computing how many units there are for one pixel of the map image">Sample length pixels (B)</TextBlock>
             </Border>
             <Border Grid.Row="4" Grid.Column="1" Style="{DynamicResource PaddedBorder}">
                 <TextBox Text="{Binding SamplePixels}" TextChanged="NumFilter_TextChanged"/>
@@ -54,14 +54,14 @@
             <Border Grid.Row="5" Grid.Column="0" Style="{DynamicResource PaddedLabelBorder}">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="{Binding UnitLabel}"/>
-                    <TextBlock>('s) per pixel (A/B)</TextBlock>
+                    <TextBlock ToolTip="How many units there are for one pixel of the map image&#x0a;Calculated using the values above">('s) per pixel (A/B)</TextBlock>
                 </StackPanel>
             </Border>
             <Border Grid.Row="5" Grid.Column="1" Style="{DynamicResource PaddedBorder}">
                 <TextBlock Text="{Binding UnitsPerPixel}"/>
             </Border>
             <Border Grid.Row="6" Grid.Column="0" Style="{DynamicResource PaddedBorder}">
-                <Button Click="OpenFileButton_Click">Open image</Button>
+                <Button Click="OpenFileButton_Click">Select map image</Button>
             </Border>
             <Border Grid.Row="6" Grid.Column="1" Style="{DynamicResource PaddedBorder}">
                 <TextBlock Text="{Binding ImageFileName}"/>

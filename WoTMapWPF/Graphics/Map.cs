@@ -1,11 +1,7 @@
-﻿using OpenTK;
-using OpenTK.Graphics.OpenGL;
+﻿using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WoTMapWPF.Graphics
 {
@@ -102,21 +98,6 @@ namespace WoTMapWPF.Graphics
             TextureLoader.DeleteTexture(TexturePath);
         }
 
-        public static Map? Instance { get => _mapInstance; }
-        public float AspectRatio { get; private set; }
-        public float HeightP { get; private set; }
-        public float WidthP { get; private set; }
-
-        public static Map New(string? texPath = null)
-        {
-            _mapInstance?.Dispose();
-            if(texPath == null)
-                _mapInstance = new Map();
-            else
-                _mapInstance = new Map(texPath);
-            return _mapInstance;
-        }
-
         public void Draw(Scene scene)
         {
             Matrix4 modelView = Matrix4.Identity;
@@ -127,6 +108,21 @@ namespace WoTMapWPF.Graphics
             GL.DrawElements(PrimitiveType.Triangles, IndicesCount, DrawElementsType.UnsignedInt, IntPtr.Zero);
             GL.BindVertexArray(0);
             GL.BindTexture(TextureTarget.Texture2D, 0);
+        }
+
+        public static Map? Instance { get => _mapInstance; }
+        public float AspectRatio { get; private set; }
+        public float HeightP { get; private set; }
+        public float WidthP { get; private set; }
+
+        public static Map New(string? texPath = null)
+        {
+            _mapInstance?.Dispose();
+            if (texPath == null)
+                _mapInstance = new Map();
+            else
+                _mapInstance = new Map(texPath);
+            return _mapInstance;
         }
     }
 }

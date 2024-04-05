@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace WoTMapWPF
 {
@@ -16,7 +12,7 @@ namespace WoTMapWPF
         private double distance;
         private bool hasDistance;
         private bool isNamed;
-        private double compoundDistance; 
+        private double compoundDistance;
 
         public PathNode()
         {

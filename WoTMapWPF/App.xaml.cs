@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.IO.IsolatedStorage;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Drawing;
 using System.Windows.Markup;
 using System.Xml;
 
@@ -82,7 +74,7 @@ namespace WoTMapWPF
             string saveLocation = (string)Resources["SaveLocation"];
             string settingsFile = $"{saveLocation}\\{settingsFileName}";
             Directory.CreateDirectory(saveLocation);
-            using(FileStream stream = File.Create(settingsFile))
+            using (FileStream stream = File.Create(settingsFile))
             {
                 using (XmlWriter xmlWriter = XmlWriter.Create(stream, writerSettings))
                 {

@@ -1,14 +1,6 @@
-﻿using ColorPicker.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Resources;
@@ -37,7 +29,7 @@ namespace WoTMapWPF.CustomControls
             BitmapImage bitmapImage = new BitmapImage();
             Uri uri = new Uri("../Res/pinA.png", UriKind.Relative);
             StreamResourceInfo sri = App.GetResourceStream(uri);
-            using(Stream stream = sri.Stream)
+            using (Stream stream = sri.Stream)
             {
                 bitmapImage.BeginInit();
                 bitmapImage.StreamSource = stream;

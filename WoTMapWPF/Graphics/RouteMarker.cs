@@ -1,11 +1,7 @@
-﻿using OpenTK;
-using OpenTK.Graphics.OpenGL;
+﻿using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
@@ -91,8 +87,15 @@ namespace WoTMapWPF.Graphics
             buffers.Add(ebo);
         }
 
-        public float PosX { get; set; }
-        public float PosY { get; set; }
+        public void Dispose()
+        {
+            if (buffers.Count > 0)
+            {
+                foreach (int buffer in buffers)
+                    GL.DeleteBuffer(buffer);
+                GL.DeleteVertexArray(Vao);
+            }
+        }
 
         public void Draw(Scene scene)
         {
@@ -114,15 +117,8 @@ namespace WoTMapWPF.Graphics
             GL.BindTexture(TextureTarget.Texture2D, 0);
         }
 
-        public void Dispose()
-        {
-            if (buffers.Count > 0)
-            {
-                foreach (int buffer in buffers)
-                    GL.DeleteBuffer(buffer);
-                GL.DeleteVertexArray(Vao);
-            }
-        }
+        public float PosX { get; set; }
+        public float PosY { get; set; }
 
         public enum MarkerType
         {

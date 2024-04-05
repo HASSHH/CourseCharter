@@ -1,11 +1,8 @@
-﻿using System;
+﻿using OpenTK.Graphics.OpenGL;
+using System;
 using System.Collections.Generic;
-using System.Drawing.Imaging;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenTK.Graphics.OpenGL;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Resources;
 
@@ -25,7 +22,7 @@ namespace WoTMapWPF.Graphics
             try
             {
                 Bitmap textureBitmap = new Bitmap(path);
-                width = textureBitmap.Width; 
+                width = textureBitmap.Width;
                 height = textureBitmap.Height;
                 BitmapData TextureData =
                         textureBitmap.LockBits(

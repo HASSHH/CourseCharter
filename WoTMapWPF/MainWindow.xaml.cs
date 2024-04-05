@@ -43,6 +43,7 @@ namespace WoTMapWPF
             Map.New();
             ViewModel = (MainWindowViewModel)DataContext;
             scene = new Scene(GLControl, ViewModel.Path);
+            ResetPathSubscriptions(null, ViewModel.Path);
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
             GLControl.Focusable = true;
             jsonSerializerOptions = new JsonSerializerOptions();

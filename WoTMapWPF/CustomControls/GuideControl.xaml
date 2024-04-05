@@ -1,0 +1,261 @@
+﻿<UserControl x:Class="WoTMapWPF.CustomControls.GuideControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WoTMapWPF.CustomControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Style="{DynamicResource PanelBorderStyle}">
+        <Grid Style="{StaticResource GuideControlStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--RMB+MMove - Pan man-->
+                <Border Grid.Row="1" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <Image Source="../Res/T_Mouse_Right_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Right mouse button"/>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock Style="{DynamicResource KeyInputTextStyle}">+</TextBlock>
+                        </Border>
+                        <Border Grid.Column="2">
+                            <Image Source="../Res/T_Mouse_XY_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Move mouse"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Pan map</TextBlock>
+                </Border>
+                <!--Ctrl+ScrollWheel - Zoom-->
+                <Border Grid.Row="2" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <Image Source="../Res/T_Ctrl_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Control key"/>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock Style="{DynamicResource KeyInputTextStyle}">+</TextBlock>
+                        </Border>
+                        <Border Grid.Column="2">
+                            <Image Source="../Res/T_Mouse_Scroll_Key_Dark_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Scroll wheel up/down"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Zoom in/out</TextBlock>
+                </Border>
+                <!--A+LMB - Add pin-->
+                <Border Grid.Row="3" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <Image Source="../Res/T_A_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="A key"/>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock Style="{DynamicResource KeyInputTextStyle}">+</TextBlock>
+                        </Border>
+                        <Border Grid.Column="2">
+                            <Image Source="../Res/T_Mouse_Left_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Left mouse button"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="3" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Add a pin at mouse pointer location</TextBlock>
+                </Border>
+                <!--LMB - Select pin-->
+                <Border Grid.Row="4" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Border>
+                            <Image Source="../Res/T_Mouse_Left_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Left mouse button"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="4" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Select nearby pin</TextBlock>
+                </Border>
+                <!--Esc - Clear selection-->
+                <Border Grid.Row="5" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Border>
+                            <Image Source="../Res/T_Esc_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Escape key"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="5" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Clear selection</TextBlock>
+                </Border>
+                <!--D - Delete pin-->
+                <Border Grid.Row="6" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Border>
+                            <Image Source="../Res/T_D_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="D key"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="6" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Delete selected pin</TextBlock>
+                </Border>
+                <!--LMB+MMove - Move pin-->
+                <Border Grid.Row="7" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <Image Source="../Res/T_Mouse_Left_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Left mouse button"/>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock Style="{DynamicResource KeyInputTextStyle}">+</TextBlock>
+                        </Border>
+                        <Border Grid.Column="2">
+                            <Image Source="../Res/T_Mouse_XY_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Move mouse"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="7" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Move pin</TextBlock>
+                </Border>
+                <!--Ctrl+Z - Undo-->
+                <Border Grid.Row="8" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <Image Source="../Res/T_Ctrl_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Control key"/>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock Style="{DynamicResource KeyInputTextStyle}">+</TextBlock>
+                        </Border>
+                        <Border Grid.Column="2">
+                            <Image Source="../Res/T_Z_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Z key"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="8" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Undo path alteration</TextBlock>
+                </Border>
+                <!--Ctrl+Y - Redo-->
+                <Border Grid.Row="9" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <Image Source="../Res/T_Ctrl_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Control key"/>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock Style="{DynamicResource KeyInputTextStyle}">+</TextBlock>
+                        </Border>
+                        <Border Grid.Column="2">
+                            <Image Source="../Res/T_Y_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Y key"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="9" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Redo path alteration</TextBlock>
+                </Border>
+                <!--Del - Delete path-->
+                <Border Grid.Row="10" Grid.Column="0"
+                    Style="{DynamicResource KeyInputBorderStyle}">
+                    <Grid>
+                        <Border>
+                            <Image Source="../Res/T_Del_Key_White.png" 
+                               Style="{DynamicResource KeyInputImageStyle}"
+                               ToolTip="Delete key"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="10" Grid.Column="1"
+                    Style="{DynamicResource KeyDescriptionBorderStyle}">
+                    <TextBlock>Delete path</TextBlock>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

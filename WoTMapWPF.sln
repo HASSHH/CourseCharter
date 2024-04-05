@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WoTMapWPF", "WoTMapWPF\WoTMapWPF.csproj", "{7F39E5D9-C14C-4676-9AFA-A04E0B724E7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F39E5D9-C14C-4676-9AFA-A04E0B724E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F39E5D9-C14C-4676-9AFA-A04E0B724E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F39E5D9-C14C-4676-9AFA-A04E0B724E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F39E5D9-C14C-4676-9AFA-A04E0B724E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B5573A6-795E-43FD-8251-4C7F95A408B5}
+	EndGlobalSection
+EndGlobal

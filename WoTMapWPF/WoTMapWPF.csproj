@@ -1,0 +1,158 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>app_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Graphics\Shaders\basic_shader.frag" />
+    <None Remove="Graphics\Shaders\basic_shader.vert" />
+    <None Remove="Res\close_button.png" />
+    <None Remove="Res\collapse_button.png" />
+    <None Remove="Res\dashed_path.png" />
+    <None Remove="Res\end_marker.png" />
+    <None Remove="Res\end_marker_selected.png" />
+    <None Remove="Res\expand_button.png" />
+    <None Remove="Res\loading_icon.png" />
+    <None Remove="Res\load_map_button.png" />
+    <None Remove="Res\load_path_button.png" />
+    <None Remove="Res\map_button.png" />
+    <None Remove="Res\marker.png" />
+    <None Remove="Res\marker_selected.png" />
+    <None Remove="Res\no_map.png" />
+    <None Remove="Res\pinA.png" />
+    <None Remove="Res\pinB.png" />
+    <None Remove="Res\preview_off.png" />
+    <None Remove="Res\preview_on.png" />
+    <None Remove="Res\save_map_button.png" />
+    <None Remove="Res\save_path_button.png" />
+    <None Remove="Res\settings_button.png" />
+    <None Remove="Res\T_A_Key_White.png" />
+    <None Remove="Res\T_Ctrl_Key_White.png" />
+    <None Remove="Res\T_Del_Key_White.png" />
+    <None Remove="Res\T_D_Key_White.png" />
+    <None Remove="Res\T_Esc_Key_White.png" />
+    <None Remove="Res\T_Mouse_Left_Key_White.png" />
+    <None Remove="Res\T_Mouse_Right_Key_White.png" />
+    <None Remove="Res\T_Mouse_Scroll_Key_Dark_Key_White.png" />
+    <None Remove="Res\T_Mouse_XY_Key_White.png" />
+    <None Remove="Res\T_Y_Key_White.png" />
+    <None Remove="Res\T_Z_Key_White.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="app_icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Res\close_button.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\collapse_button.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\dashed_path.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\end_marker.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\end_marker_selected.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\expand_button.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\loading_icon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\marker.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\marker_selected.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\no_map.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\pinA.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\pinB.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\preview_off.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\preview_on.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\save_map_button.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\load_path_button.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\map_button.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\load_map_button.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\save_path_button.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\settings_button.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_A_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_Ctrl_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_Del_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_D_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_Esc_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_Mouse_Left_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_Mouse_Right_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_Mouse_Scroll_Key_Dark_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_Mouse_XY_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_Y_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Res\T_Z_Key_White.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Shaders\basic_shader.frag" />
+    <EmbeddedResource Include="Graphics\Shaders\basic_shader.vert" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenTK.GLWpfControl" Version="4.2.3" />
+    <PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

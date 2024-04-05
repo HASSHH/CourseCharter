@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <s:String x:Key="ThemeName">Default.xaml</s:String>
+    <SolidColorBrush x:Key="PinColor" Color="Green"/>
+    <SolidColorBrush x:Key="PinSelectedColor" Color="Blue"/>
+    <SolidColorBrush x:Key="DashedPathColor" Color="Red"/>
+    <s:Boolean x:Key="IsPathAutosaveEnabled">True</s:Boolean>
+    <s:Int16 x:Key="LineStipplePattern">0x00FF</s:Int16>
+    <s:Int32 x:Key="LineStippleFactor">2</s:Int32>
+    <s:Double x:Key="LineWidth">5</s:Double>
+    <s:Double x:Key="PinSize">70</s:Double>
+</ResourceDictionary>

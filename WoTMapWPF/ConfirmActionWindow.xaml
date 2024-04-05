@@ -1,0 +1,36 @@
+﻿<Window x:Class="WoTMapWPF.ConfirmActionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WoTMapWPF"
+        mc:Ignorable="d"
+        Title="Confirm" Height="Auto" Width="Auto"
+        SizeToContent="WidthAndHeight"
+        FontSize="{DynamicResource FontSizeMain}"
+        Background="{DynamicResource ThemeColorVibrant}">
+    <Window.DataContext>
+        <local:ConfirmActionWindowViewModel/>
+    </Window.DataContext>
+    <Grid Style="{DynamicResource ConfirmActionStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Style="{DynamicResource PaddedBorder}">
+            <TextBlock Text="{Binding Message}" Foreground="{DynamicResource ThemeColorText}"/>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Style="{DynamicResource PaddedBorder}">
+                <Button Click="YesButton_Click" Style="{DynamicResource SubmitButton}">Yes</Button>
+            </Border>
+            <Border Grid.Column="1" Style="{DynamicResource PaddedBorder}">
+                <Button Click="NoButton_Click" Style="{DynamicResource SubmitButton}">No</Button>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

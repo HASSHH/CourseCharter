@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="ThemeColorHighlight" Color="#A6806A"/>
+    <SolidColorBrush x:Key="ThemeColorActive" Color="#593A2E"/>
+    <SolidColorBrush x:Key="ThemeColorInactive" Color="#A67F68"/>
+    <SolidColorBrush x:Key="ThemeColorMain" Color="#D9C2AD"/>
+    <SolidColorBrush x:Key="ThemeColorVibrant" Color="#BF926B"/>
+    <SolidColorBrush x:Key="ThemeColorMuted" Color="#F2E5D5"/>
+    <SolidColorBrush x:Key="ThemeColorError" Color="#E04150"/>
+    <SolidColorBrush x:Key="ThemeColorSuccess" Color="#41E066"/>
+    <SolidColorBrush x:Key="ThemeColorText" Color="#26140E"/>
+    <SolidColorBrush x:Key="ThemeColorTextInverted" Color="#F2E5D5"/>
+    <SolidColorBrush x:Key="ThemeColorTextEdit" Color="#0D0000"/>
+</ResourceDictionary>

@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="WoTMapWPF.CustomControls.NotificationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WoTMapWPF.CustomControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:NotificationControlViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <ScrollViewer Grid.Row="0"
+                      VerticalScrollBarVisibility="Auto">
+            <TextBlock Text="{Binding Text}"/>
+        </ScrollViewer>
+        <StackPanel HorizontalAlignment="Right">
+            <Button Click="CloseButton_Click" Style="{DynamicResource CloseButtonStyle}">
+                <Image Source="..\Res\close_button.png"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -12,13 +12,11 @@
     <Border Style="{DynamicResource PanelBorderStyle}">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="300"/>
                     <ColumnDefinition/>
@@ -30,7 +28,7 @@
                     <TextBlock Text="Unit"/>
                 </Border>
             </Grid>
-            <Border Grid.Row="2" Style="{DynamicResource PaddedBorder}">
+            <Border Grid.Row="1" Style="{DynamicResource PaddedBorder}">
                 <ListView ItemsSource="{Binding Maps}"
                       SelectedItem="{Binding SelectedMap}">
                     <ListView.ItemTemplate>
@@ -72,7 +70,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Border>
-            <Border Grid.Row="3" Style="{DynamicResource PaddedBorder}">
+            <Border Grid.Row="2" Style="{DynamicResource PaddedBorder}">
                 <Button Click="LoadButton_Click" Style="{DynamicResource SubmitButton}">Load</Button>
             </Border>
         </Grid>

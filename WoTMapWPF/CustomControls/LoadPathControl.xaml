@@ -14,10 +14,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border Grid.Row="1" Style="{DynamicResource PaddedBorder}">
+            <Border Grid.Row="0" Style="{DynamicResource PaddedBorder}" VerticalAlignment="Stretch">
                 <ListView ItemsSource="{Binding Paths}"
                       SelectedItem="{Binding SelectedPath}">
                     <ListView.ItemTemplate>
@@ -39,7 +37,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Border>
-            <Border Grid.Row="2" Style="{DynamicResource PaddedBorder}">
+            <Border Grid.Row="1" Style="{DynamicResource PaddedBorder}">
                 <Button Click="LoadButton_Click" Style="{DynamicResource SubmitButton}">Load</Button>
             </Border>
         </Grid>

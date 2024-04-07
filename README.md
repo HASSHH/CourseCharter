@@ -45,12 +45,12 @@ To clear up the clutter that can arise from adding multiple intermediary nodes b
 ### Autosave<a name="autosave"></a>
 Every time the path is modified in any way the app will automatically save it to the disk so if you closed the app by accident or forgot to save the path before exiting the program your path data won't be lost, and you can continue where you left off. This feature can be disabled in the settings menu.
 
-<image placeholder>
+<img src="https://github.com/HASSHH/CourseCharter/assets/1902707/d1342d73-7673-49ea-9deb-e3d050baa6d1" height="50"/>
 
 ### Customize path markers<a name="customize"></a>
 The color and size of the map pins and path line can be changed in the settings menu. The pattern of the path line can also be changed.
 
-<image placeholder>
+<img src="https://github.com/HASSHH/CourseCharter/assets/1902707/04243d7b-1a5d-44ff-b322-55d11d13a9d0" height="250"/>
 
 ### Save location<a name="save"></a>
 User-defined maps, saved paths and user settings file are saved in __`%USERPROFILE%/Documents/CourseCharter`__

@@ -44,7 +44,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Button Grid.Column="0"
-                                        Visibility="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType=ListViewItem}, Converter={StaticResource BoolToVisConverter}}"
+                                        Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType=ListViewItem}, Converter={StaticResource BoolToVisConverter}}"
                                         x:Name="PreviewButton"
                                         PreviewMouseDown="PreviewButton_PreviewMouseDown"
                                         Style="{DynamicResource PreviewButtonStyle}">

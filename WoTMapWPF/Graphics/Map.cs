@@ -35,6 +35,44 @@ namespace WoTMapWPF.Graphics
             Init();
         }
 
+        public void Dispose()
+        {
+            if (buffers.Count > 0)
+            {
+                foreach (int buffer in buffers)
+                    GL.DeleteBuffer(buffer);
+                GL.DeleteVertexArray(Vao);
+            }
+            TextureLoader.DeleteTexture(TexturePath);
+        }
+
+        public void Draw(Scene scene)
+        {
+            Matrix4 modelView = Matrix4.Identity;
+            GL.UniformMatrix4(scene.ModelMatrixULoc, false, ref modelView);
+            GL.ActiveTexture(TextureUnit.Texture0);
+            GL.BindTexture(TextureTarget.Texture2D, TextureID);
+            GL.BindVertexArray(Vao);
+            GL.DrawElements(PrimitiveType.Triangles, IndicesCount, DrawElementsType.UnsignedInt, IntPtr.Zero);
+            GL.BindVertexArray(0);
+            GL.BindTexture(TextureTarget.Texture2D, 0);
+        }
+
+        public static Map? Instance { get => _mapInstance; }
+        public float AspectRatio { get; private set; }
+        public float HeightP { get; private set; }
+        public float WidthP { get; private set; }
+
+        public static Map New(string? texPath = null)
+        {
+            _mapInstance?.Dispose();
+            if (texPath == null)
+                _mapInstance = new Map();
+            else
+                _mapInstance = new Map(texPath);
+            return _mapInstance;
+        }
+
         private void Init()
         {
             float halfH = Scene.VERTICAL_UNITS / 2;
@@ -85,44 +123,6 @@ namespace WoTMapWPF.Graphics
             buffers.Add(posVbo);
             buffers.Add(uvVbo);
             buffers.Add(ebo);
-        }
-
-        public void Dispose()
-        {
-            if (buffers.Count > 0)
-            {
-                foreach (int buffer in buffers)
-                    GL.DeleteBuffer(buffer);
-                GL.DeleteVertexArray(Vao);
-            }
-            TextureLoader.DeleteTexture(TexturePath);
-        }
-
-        public void Draw(Scene scene)
-        {
-            Matrix4 modelView = Matrix4.Identity;
-            GL.UniformMatrix4(scene.ModelMatrixULoc, false, ref modelView);
-            GL.ActiveTexture(TextureUnit.Texture0);
-            GL.BindTexture(TextureTarget.Texture2D, TextureID);
-            GL.BindVertexArray(Vao);
-            GL.DrawElements(PrimitiveType.Triangles, IndicesCount, DrawElementsType.UnsignedInt, IntPtr.Zero);
-            GL.BindVertexArray(0);
-            GL.BindTexture(TextureTarget.Texture2D, 0);
-        }
-
-        public static Map? Instance { get => _mapInstance; }
-        public float AspectRatio { get; private set; }
-        public float HeightP { get; private set; }
-        public float WidthP { get; private set; }
-
-        public static Map New(string? texPath = null)
-        {
-            _mapInstance?.Dispose();
-            if (texPath == null)
-                _mapInstance = new Map();
-            else
-                _mapInstance = new Map(texPath);
-            return _mapInstance;
         }
     }
 }

@@ -323,10 +323,5 @@ namespace WoTMapWPF.Graphics
             }
             return selected;
         }
-
-        public enum MovingStatusValue
-        {
-            None, Active, Finished
-        }
     }
 }

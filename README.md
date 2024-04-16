@@ -58,4 +58,3 @@ User-defined maps, saved paths and user settings file are saved in __`%USERPROFI
 ### System requirements<a name="sys_req"></a>
 * Windows x64 OS
 * [.NET8 runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.204-windows-x64-installer)
-* [VC++ Redist](https://aka.ms/vs/17/release/vc_redist.x64.exe) (OpenTK requires this)

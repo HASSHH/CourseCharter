@@ -303,7 +303,11 @@ namespace WoTMapWPF
                     pathFileDefinition.Path = ViewModel.Path;
                     string jsonString = JsonSerializer.Serialize(pathFileDefinition, jsonSerializerOptions);
                     Directory.CreateDirectory($"{saveLocation}\\maps\\{pathFileDefinition.ImageMD5}\\autosave");
-                    File.WriteAllText($"{saveLocation}\\maps\\{pathFileDefinition.ImageMD5}\\autosave\\{fileName}", jsonString);
+                    try
+                    {
+                        File.WriteAllText($"{saveLocation}\\maps\\{pathFileDefinition.ImageMD5}\\autosave\\{fileName}", jsonString);
+                    }
+                    catch { }
                 }
             }
         }

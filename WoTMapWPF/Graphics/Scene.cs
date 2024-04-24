@@ -117,7 +117,7 @@ namespace WoTMapWPF.Graphics
                     markerIndex = path.SelectedIndex + 1;
                 else
                     markerIndex = path.Nodes.Count;
-                path.Nodes.Insert(markerIndex, new PathNode { Position = position });
+                path.InsertNode(markerIndex, new PathNode { Position = position });
                 //select the new marker
                 path.SelectedIndex = markerIndex;
             }

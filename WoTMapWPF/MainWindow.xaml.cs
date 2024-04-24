@@ -348,7 +348,7 @@ namespace WoTMapWPF
                             Path path = ViewModel.Path;
                             int index = path.SelectedIndex;
                             if (index >= 0 && index < path.Nodes.Count)
-                                path.Nodes.RemoveAt(index);
+                                path.RemoveNode(index);
                             break;
                         }
                     case Key.Delete:

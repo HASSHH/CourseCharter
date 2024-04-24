@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Data;
@@ -9,26 +9,24 @@ namespace WoTMapWPF
 {
     public class Path : ICloneable, INotifyPropertyChanged
     {
-        private ObservableCollection<PathNode> nodes;
+        private List<PathNode> nodes;
         private double totalDistance;
         private int selectedIndex;
 
         public Path()
         {
-            nodes = new ObservableCollection<PathNode>();
+            nodes = new List<PathNode>();
             totalDistance = 0;
             selectedIndex = -1;
-            nodes.CollectionChanged += Nodes_CollectionChanged;
         }
 
         public Path(Path path)
         {
-            nodes = new ObservableCollection<PathNode>();
+            nodes = new List<PathNode>();
             totalDistance = path.TotalDistance;
             selectedIndex = path.SelectedIndex;
             foreach (PathNode node in path.Nodes)
                 nodes.Add((PathNode)node.Clone());
-            nodes.CollectionChanged += Nodes_CollectionChanged;
             SubToNodes();
         }
 
@@ -45,7 +43,7 @@ namespace WoTMapWPF
             return new Path(this);
         }
 
-        public ObservableCollection<PathNode> Nodes
+        public List<PathNode> Nodes
         {
             get { return nodes; }
             set
@@ -53,7 +51,7 @@ namespace WoTMapWPF
                 nodes = value;
                 UnsubFromNodes();
                 SubToNodes();
-                nodes.CollectionChanged += Nodes_CollectionChanged;
+                OnPropertyChanged("Nodes");
             }
         }
         /// <summary>
@@ -70,11 +68,16 @@ namespace WoTMapWPF
             PathChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        private void Nodes_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        public void InsertNode(int index, PathNode node)
         {
-            ComputeRelativeNodeData();
-            PathChanged?.Invoke(this, EventArgs.Empty);
-            CollectionViewSource.GetDefaultView(nodes).Refresh();
+            nodes.Insert(index, node);
+            OnNodeListChanged();
+        }
+
+        public void RemoveNode(int index)
+        {
+            nodes.RemoveAt(index);
+            OnNodeListChanged();
         }
 
         private void Node_PropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -85,6 +88,13 @@ namespace WoTMapWPF
             //path "changed" when node Name changes or when a node move is finished
             if (e.PropertyName == "Name")
                 PathChanged?.Invoke(this, EventArgs.Empty);
+            CollectionViewSource.GetDefaultView(nodes).Refresh();
+        }
+
+        private void OnNodeListChanged()
+        {
+            ComputeRelativeNodeData();
+            PathChanged?.Invoke(this, EventArgs.Empty);
             CollectionViewSource.GetDefaultView(nodes).Refresh();
         }
 

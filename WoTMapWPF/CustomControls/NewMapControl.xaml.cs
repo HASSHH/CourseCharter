@@ -1,7 +1,10 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,12 +22,12 @@ namespace WoTMapWPF.CustomControls
         public NewMapControl()
         {
             InitializeComponent();
-            ResetControl();
+            ResetControl(new List<string>());
         }
 
         public NewMapControlViewModel ViewModel { get => (NewMapControlViewModel)DataContext; }
 
-        public void ResetControl()
+        public void ResetControl(List<string> existingMaps)
         {
             NewMapControlViewModel model = ViewModel;
             model.ImageFileName = "-no image selected-";
@@ -36,6 +39,9 @@ namespace WoTMapWPF.CustomControls
             model.SampleUnits = 1;
             model.UnitLabel = "km";
             MapImage.Source = null;
+            for (int i = 0; i < existingMaps.Count; i++)
+                existingMaps[i] = System.IO.Path.GetFileNameWithoutExtension(existingMaps[i]);
+            model.NameSuggestionValues = existingMaps;
         }
 
         private void OpenFileButton_Click(object sender, RoutedEventArgs e)
@@ -103,6 +109,27 @@ namespace WoTMapWPF.CustomControls
             TextBox textboxSender = (TextBox)sender;
             int cursorPosition = textboxSender.SelectionStart;
             textboxSender.Text = Regex.Replace(textboxSender.Text, "[^0-9]", "");
+            textboxSender.SelectionStart = cursorPosition;
+        }
+
+        /// <summary>
+        /// Filter out characters that are not valid for a file's name.
+        /// Handler for TextChanged event of a TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FileNameFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textboxSender = (TextBox)sender;
+            int cursorPosition = textboxSender.SelectionStart;
+            char[] invalidFileNameChars = System.IO.Path.GetInvalidFileNameChars();
+            char[] invalidPathChars = System.IO.Path.GetInvalidPathChars();
+            char[] invalidChars = invalidFileNameChars.Concat(invalidPathChars).ToArray();
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (char c in textboxSender.Text)
+                if (!invalidChars.Contains(c))
+                    stringBuilder.Append(c);
+            textboxSender.Text = stringBuilder.ToString();
             textboxSender.SelectionStart = cursorPosition;
         }
     }

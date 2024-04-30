@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace WoTMapWPF.CustomControls
 {
@@ -12,6 +13,7 @@ namespace WoTMapWPF.CustomControls
         private string imageFileName;
         private string imageFilePath;
         private string imageMD5;
+        private List<string> nameSuggestionValues;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -28,6 +30,7 @@ namespace WoTMapWPF.CustomControls
         public string ImageFileName { get => imageFileName; set { imageFileName = value; OnPropertyChanged("ImageFileName"); } }
         public string ImageFilePath { get => imageFilePath; set { imageFilePath = value; OnPropertyChanged("ImageFilePath"); } }
         public string ImageMD5 { get => imageMD5; set { imageMD5 = value; OnPropertyChanged("ImageMD5"); } }
+        public List<string> NameSuggestionValues { get => nameSuggestionValues; set { nameSuggestionValues = value; OnPropertyChanged("NameSuggestionValues"); } }
 
         private void OnPropertyChanged(string propName)
         {

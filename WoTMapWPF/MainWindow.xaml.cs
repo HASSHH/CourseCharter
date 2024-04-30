@@ -475,7 +475,11 @@ namespace WoTMapWPF
 
         private void ShowNewMapButton_Click(object sender, RoutedEventArgs e)
         {
-            NewMapControl.ResetControl();
+            List<string> existingMaps = new List<string>();
+            if (Directory.Exists($"{saveLocation}\\maps"))
+                foreach (string subdir in Directory.GetDirectories($"{saveLocation}\\maps"))
+                    existingMaps.AddRange(Directory.GetFiles(subdir, "*.info"));
+            NewMapControl.ResetControl(existingMaps);
             ShowPanel("NewMap", " - New Map");
         }
 
@@ -509,7 +513,11 @@ namespace WoTMapWPF
                 NotificationControl.ShowNotificationAndHide($"There is no path to save.");
                 return;
             }
-            SavePathControl.ResetControl();
+            List<string> existingPaths = new List<string>();
+            string dir = $"{saveLocation}\\maps\\{ViewModel.MapImageMD5}\\paths";
+            if (Directory.Exists(dir))
+                existingPaths.AddRange(Directory.GetFiles(dir, "*.info"));
+            SavePathControl.ResetControl(existingPaths);
             ShowPanel("SavePath", " - Save Path");
         }
 
@@ -557,8 +565,9 @@ namespace WoTMapWPF
             {
                 if (File.Exists($"{saveLocation}\\maps\\{nmc.ViewModel.ImageMD5}\\{nmc.ViewModel.Name}.info"))
                 {
-                    NotificationControl.ShowError($"A file with the name \"{saveLocation}\\maps\\{nmc.ViewModel.ImageMD5}\\{nmc.ViewModel.Name}.info\" already exists.");
-                    return;
+                    ConfirmActionWindow caw = new ConfirmActionWindow($"A map with the name \"{nmc.ViewModel.Name}\" already exists for the selected image base.\nDo you wish to replace it?");
+                    if (!caw.ShowDialog().GetValueOrDefault())
+                        return;
                 }
                 string imageFileExtension = System.IO.Path.GetExtension(nmc.ViewModel.ImageFilePath);
                 MapFileDefinition map = new MapFileDefinition();
@@ -602,8 +611,9 @@ namespace WoTMapWPF
                 string imageMD5 = ViewModel.MapImageMD5;
                 if (File.Exists($"{saveLocation}\\maps\\{imageMD5}\\paths\\{pathName}.info"))
                 {
-                    NotificationControl.ShowError($"A file with the name \"{saveLocation}\\maps\\{imageMD5}\\paths\\{pathName}.info\" already exists.");
-                    return;
+                    ConfirmActionWindow caw = new ConfirmActionWindow($"A path with the name \"{pathName}\" already exists.\nDo you wish to replace it?");
+                    if(!caw.ShowDialog().GetValueOrDefault())
+                        return;
                 }
                 PathFileDefinition pathFileDefinition = new PathFileDefinition();
                 pathFileDefinition.Name = pathName;

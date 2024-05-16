@@ -19,10 +19,10 @@ namespace WoTMapWPF
             position = new GLPosition();
             index = -1;
             name = string.Empty;
-            distance = 0;
-            hasDistance = false;
             isNamed = false;
+            distance = 0;
             compoundDistance = 0;
+            hasDistance = false;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -34,6 +34,7 @@ namespace WoTMapWPF
                 Position = (GLPosition)this.Position.Clone(),
                 Index = this.Index,
                 Name = this.Name,
+                IsNamed = this.IsNamed,
                 Distance = this.Distance,
                 CompoundDistance = this.CompoundDistance,
                 HasDistance = this.HasDistance

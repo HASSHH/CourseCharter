@@ -358,7 +358,10 @@ namespace WoTMapWPF
                             string message = "Are you sure you want to clear the current path?";
                             ConfirmActionWindow caw = new ConfirmActionWindow(message);
                             if (caw.ShowDialog().GetValueOrDefault())
+                            {
                                 ApplyPath(new Path());
+                                AutosavePath();
+                            }
                         }
                         break;
                     case Key.Z:
